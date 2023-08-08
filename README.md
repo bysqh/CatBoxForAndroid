@@ -1,7 +1,7 @@
 # NekoBox for Android
 
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
-[![Releases](https://img.shields.io/github/v/release/MatsuriDayo/NekoBoxForAndroid)](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases)
+[![Releases](https://img.shields.io/github/v/release/AntiNeko/CatBoxForAndroid)](https://github.com/AntiNeko/CatBoxForAndroid/releases)
 [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-orange.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 sing-box / universal proxy toolchain for Android.
@@ -12,11 +12,9 @@ sing-box / universal proxy toolchain for Android.
 
 ### GitHub Releases
 
-[![GitHub All Releases](https://img.shields.io/github/downloads/Matsuridayo/NekoBoxForAndroid/total?label=downloads-total&logo=github&style=flat-square)](https://github.com/Matsuridayo/NekoBoxForAndroid/releases)
+[![GitHub All Releases](https://img.shields.io/github/downloads/AntiNeko/CatBoxForAndroid/total?label=downloads-total&logo=github&style=flat-square)](https://github.com/AntiNeko/CatBoxForAndroid/releases)
 
-[下载](https://github.com/Matsuridayo/NekoBoxForAndroid/releases)
-
-[Google Play](https://play.google.com/store/apps/details?id=moe.nb4a)
+[下载](https://github.com/AntiNeko/CatBoxForAndroid/releases)
 
 ## 更改记录 & 发布频道 / Changelog & Telegram channel
 
@@ -24,7 +22,7 @@ https://t.me/Matsuridayo
 
 ## 项目主页 & 文档 / Homepage & Documents
 
-https://matsuridayo.github.io
+https://AntiNeko.github.io
 
 ## 代理 / Proxy
 
@@ -41,9 +39,9 @@ https://matsuridayo.github.io
 * Hysteria ( hysteria-plugin )
 * TUIC ( tuic-plugin & tuic-v5-plugin )
 
-请到[这里](https://matsuridayo.github.io/m-plugin/)下载插件。
+请到[这里](https://AntiNeko.github.io/m-plugin/)下载插件。
 
-Please visit [here](https://matsuridayo.github.io/m-plugin/) to download plugins.
+Please visit [here](https://AntiNeko.github.io/m-plugin/) to download plugins.
 
 ## 订阅 / Subscription
 
