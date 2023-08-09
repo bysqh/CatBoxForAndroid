@@ -62,7 +62,7 @@ fun parseHysteria(url: String): HysteriaBean {
 
 fun HysteriaBean.toUri(): String {
     val builder = linkBuilder()
-        .host(serverAddress)
+        .host(serverAddress.wrapIPV6Host())
         .port(getFirstPort(serverPorts))
     if (isMultiPort(displayAddress())) {
         builder.addQueryParameter("mport", serverPorts)
