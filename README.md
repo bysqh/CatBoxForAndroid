@@ -50,20 +50,125 @@ Please visit [here](https://AntiNeko.github.io/m-plugin/) to download plugins.
 * Raw: some widely used formats (like shadowsocks, clash and v2rayN)
 * 原始格式：一些广泛使用的格式（如 shadowsocks、clash 和 v2rayN）
 
-## 捐助 / Donate
+## 开发 / Development
 
-欢迎捐赠以支持项目开发。
+### 编译
 
-* 您也可以通过 [Google Play](https://play.google.com/store/apps/details?id=moe.nb4a) 购买捐赠，另有支付宝微信购买方式，见 TG 频道置顶。
-* Donating via [Google Play](https://play.google.com/store/apps/details?id=moe.nb4a), using credit cards.
+#### 获取源代码
 
-USDT TRC20
+```shell
+git clone https://github.com/AntiNeko/CatBoxForAndroid.git
+```
 
-`TRhnA7SXE5Sap5gSG3ijxRmdYFiD4KRhPs`
+#### libcore
 
-XMR
+环境：
 
-`49bwESYQjoRL3xmvTcjZKHEKaiGywjLYVQJMUv79bXonGiyDCs8AzE3KiGW2ytTybBCpWJUvov8SjZZEGg66a4e59GXa6k5`
+* java-8-openjdk
+* go （版本应尽可能新）
+
+运行：
+
+```shell
+./run lib core
+```
+
+得到 `app/libs/libcore.aar`
+
+建议提前设置 `$GOPATH`，并安装好 gomobile，否则会自行编译一个 gomobile。
+
+#### apk
+
+环境：
+
+* jdk-17-openjd
+* ndk 25.0.8775105
+
+如果没有环境变量 `$ANDROID_HOME` 和 `$ANDROID_NDK_HOME` 可以运行脚本 `buildScript/init/env_ndk.sh`
+
+```shell
+echo "sdk.dir=${ANDROID_HOME}" > local.properties
+echo "ndk.dir=${ANDROID_HOME}/ndk/25.0.8775105" >> local.properties
+```
+
+签名准备（可选，可以编译后再签名）：替换 `release.keystore` 为自己的。
+
+```shell
+export KEYSTORE_PASS=
+export ALIAS_NAME=
+export ALIAS_PASS=
+```
+
+以上这只是举例，请勿直接把密码信息放入环境变量，而是附加在编译命令前。
+
+正式编译：
+
+```shell
+./run init action gradle
+./gradlew app:assembleOssRelease
+```
+
+在 `app/build/outputs/apk` 得到 apk 文件。
+
+## 开发 / Development
+
+### 编译
+
+#### 获取源代码
+
+```shell
+git clone https://github.com/AntiNeko/CatBoxForAndroid.git
+```
+
+#### libcore
+
+环境：
+
+* java-8-openjdk
+* go （版本应尽可能新）
+
+运行：
+
+```shell
+./run lib core
+```
+
+得到 `app/libs/libcore.aar`
+
+建议提前设置 `$GOPATH`，并安装好 gomobile，否则会自行编译一个 gomobile。
+
+#### apk
+
+环境：
+
+* jdk-17-openjd
+* ndk 25.0.8775105
+
+如果没有环境变量 `$ANDROID_HOME` 和 `$ANDROID_NDK_HOME` 可以运行脚本 `buildScript/init/env_ndk.sh`
+
+```shell
+echo "sdk.dir=${ANDROID_HOME}" > local.properties
+echo "ndk.dir=${ANDROID_HOME}/ndk/25.0.8775105" >> local.properties
+```
+
+签名准备（可选，可以编译后再签名）：替换 `release.keystore` 为自己的。
+
+```shell
+export KEYSTORE_PASS=
+export ALIAS_NAME=
+export ALIAS_PASS=
+```
+
+以上这只是举例，请勿直接把密码信息放入环境变量，而是附加在编译命令前。
+
+正式编译：
+
+```shell
+./run init action gradle
+./gradlew app:assembleOssRelease
+```
+
+在 `app/build/outputs/apk` 得到 apk 文件。
 
 ## Credits
 
@@ -75,3 +180,4 @@ Android GUI:
 - [shadowsocks/shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android)
 - [SagerNet/SagerNet](https://github.com/SagerNet/SagerNet)
 - [Matsuridayo/Matsuri](https://github.com/MatsuriDayo/Matsuri)
+- [MatsuriDayo/NekoBoxForAndroid](https://github.com/MatsuriDayo/NekoBoxForAndroid)
