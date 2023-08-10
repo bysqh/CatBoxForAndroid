@@ -472,7 +472,7 @@ object RawUpdater : GroupUpdater() {
                                 when (opt.key.replace("_", "-")) {
                                     "name" -> bean.name = opt.value.toString()
                                     "server" -> bean.serverAddress = opt.value as String
-                                    "port" -> bean.serverPort = opt.value.toString().toInt()
+                                    "port" -> bean.serverPorts = opt.value.toString()
                                     "ports" -> hopPorts = opt.value.toString()
 
                                     "obfs" -> bean.obfuscation = opt.value.toString()
@@ -508,7 +508,6 @@ object RawUpdater : GroupUpdater() {
                                         val alpn = (opt.value as? (List<String>))
                                         bean.alpn = alpn?.joinToString("\n") ?: "h3"
                                     }
-
                                 }
                             }
                             if (hopPorts.isNotBlank()) {
