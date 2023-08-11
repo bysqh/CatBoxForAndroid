@@ -428,7 +428,7 @@
 
     <string-array name="packet_encoding_entry">
         <item>none</item>
-        <item>packet</item>
+        <item>packetaddr</item>
         <item>xudp</item>
     </string-array>
 

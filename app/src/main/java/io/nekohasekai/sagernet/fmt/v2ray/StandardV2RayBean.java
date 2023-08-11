@@ -50,7 +50,7 @@ public abstract class StandardV2RayBean extends AbstractBean {
 
     // --------------------------------------- //
 
-    public Integer packetEncoding; // 1:packet 2:xudp
+    public Integer packetEncoding; // 1:packetaddr 2:xudp
 
     @Override
     public void initializeDefaultValues() {

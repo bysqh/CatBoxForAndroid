@@ -21,6 +21,7 @@ data class VmessQRCode(
     var aid: String = "0",
     var scy: String = "",
     var net: String = "",
+    var packet_encoding: String = "",
     var type: String = "",
     var host: String = "",
     var path: String = "",
@@ -117,6 +118,8 @@ fun parseV2Ray(link: String): StandardV2RayBean {
                 }
             }
         }
+
+        bean.packetEncoding = 1 // It is comes from V2Ray!
     } else {
         // also vless format
         bean.parseDuckSoft(url)
@@ -224,10 +227,12 @@ fun StandardV2RayBean.parseDuckSoft(url: HttpUrl) {
         }
     }
 
-    url.queryParameter("packetEncoding")?.let {
-        when (it) {
-            "packet" -> packetEncoding = 1
-            "xudp" -> packetEncoding = 2
+    if (isVLESS) {
+        url.queryParameter("packetEncoding")?.let {
+            when (it) {
+                "packetaddr" -> packetEncoding = 1
+                "xudp" -> packetEncoding = 2
+            }
         }
     }
 
@@ -323,6 +328,16 @@ fun parseV2RayN(link: String): VMessBean {
     bean.path = vmessQRCode.path
     val headerType = vmessQRCode.type
 
+    when (vmessQRCode.packet_encoding) {
+        "packetaddr" -> {
+            bean.packetEncoding = 1
+        }
+
+        "xudp" -> {
+            bean.packetEncoding = 2
+        }
+    }
+
     when (bean.type) {
         "tcp" -> {
             if (headerType == "http") {
@@ -388,6 +403,13 @@ fun VMessBean.toV2rayN(): String {
         id = bean.uuid
         aid = bean.alterId.toString()
         net = bean.type
+
+        when (bean.packetEncoding) {
+            0 -> packet_encoding = ""
+            1 -> packet_encoding = "packetaddr"
+            2 -> packet_encoding = "xudp"
+        }
+
         host = bean.host
         path = bean.path
 
@@ -432,6 +454,15 @@ fun StandardV2RayBean.toUriVMessVLESSTrojan(isTrojan: Boolean): String {
     if (isVLESS) {
         builder.addQueryParameter("encryption", "none")
         if (encryption != "auto") builder.addQueryParameter("flow", encryption)
+        when (packetEncoding) {
+            1 -> {
+                builder.addQueryParameter("packetEncoding", "packetaddr")
+            }
+
+            2 -> {
+                builder.addQueryParameter("packetEncoding", "xudp")
+            }
+        }
     }
 
     when (type) {
@@ -488,16 +519,6 @@ fun StandardV2RayBean.toUriVMessVLESSTrojan(isTrojan: Boolean): String {
                     builder.addQueryParameter("sid", realityShortId)
                 }
             }
-        }
-    }
-
-    when (packetEncoding) {
-        1 -> {
-            builder.addQueryParameter("packetEncoding", "packetaddr")
-        }
-
-        2 -> {
-            builder.addQueryParameter("packetEncoding", "xudp")
         }
     }
 
