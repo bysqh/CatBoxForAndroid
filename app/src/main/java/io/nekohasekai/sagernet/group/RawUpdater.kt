@@ -280,6 +280,7 @@ object RawUpdater : GroupUpdater() {
                                 method = clashCipher(proxy["cipher"] as String)
                                 plugin = ssPlugin.joinToString(";")
                                 name = proxy["name"]?.toString()
+                                sUoT = proxy["udp-over-tcp"]?.toString() == "true"
                             })
                         }
 
