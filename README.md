@@ -110,66 +110,6 @@ export ALIAS_PASS=
 
 在 `app/build/outputs/apk` 得到 apk 文件。
 
-## 开发 / Development
-
-### 编译
-
-#### 获取源代码
-
-```shell
-git clone https://github.com/AntiNeko/CatBoxForAndroid.git
-```
-
-#### libcore
-
-环境：
-
-* java-8-openjdk
-* go （版本应尽可能新）
-
-运行：
-
-```shell
-./run lib core
-```
-
-得到 `app/libs/libcore.aar`
-
-建议提前设置 `$GOPATH`，并安装好 gomobile，否则会自行编译一个 gomobile。
-
-#### apk
-
-环境：
-
-* jdk-17-openjd
-* ndk 25.0.8775105
-
-如果没有环境变量 `$ANDROID_HOME` 和 `$ANDROID_NDK_HOME` 可以运行脚本 `buildScript/init/env_ndk.sh`
-
-```shell
-echo "sdk.dir=${ANDROID_HOME}" > local.properties
-echo "ndk.dir=${ANDROID_HOME}/ndk/25.0.8775105" >> local.properties
-```
-
-签名准备（可选，可以编译后再签名）：替换 `release.keystore` 为自己的。
-
-```shell
-export KEYSTORE_PASS=
-export ALIAS_NAME=
-export ALIAS_PASS=
-```
-
-以上这只是举例，请勿直接把密码信息放入环境变量，而是附加在编译命令前。
-
-正式编译：
-
-```shell
-./run init action gradle
-./gradlew app:assembleOssRelease
-```
-
-在 `app/build/outputs/apk` 得到 apk 文件。
-
 ## Credits
 
 Core:
