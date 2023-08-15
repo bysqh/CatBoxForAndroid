@@ -150,6 +150,8 @@ fun buildConfig(
         .mapNotNull { dns -> dns.trim().takeIf { it.isNotBlank() && !it.startsWith("#") } }
     val directDNS = DataStore.directDns.split("\n")
         .mapNotNull { dns -> dns.trim().takeIf { it.isNotBlank() && !it.startsWith("#") } }
+    val underlyingDns = DataStore.underlyingDns.split("\n")
+        .mapNotNull { dns -> dns.trim().takeIf { it.isNotBlank() && !it.startsWith("#")} }
     val enableDnsRouting = DataStore.enableDnsRouting
     val useFakeDns = DataStore.enableFakeDns && !forTest
     val needSniff = DataStore.trafficSniffing > 0
@@ -718,11 +720,16 @@ fun buildConfig(
                 strategy = autoDnsDomainStrategy(SingBoxOptionsUtil.domainStrategy(tag))
             })
         }
-        dns.servers.add(DNSServerOptions().apply {
-            address = LOCAL_DNS_SERVER
-            tag = "dns-local"
-            detour = TAG_DIRECT
-        })
+
+        // underlyingDns
+        underlyingDns.firstOrNull().let {
+            dns.servers.add(DNSServerOptions().apply {
+                address = it ?: "local"
+                tag = "dns-local"
+                detour = TAG_DIRECT
+            })
+        }
+
         dns.servers.add(DNSServerOptions().apply {
             address = "rcode://success"
             tag = "dns-block"

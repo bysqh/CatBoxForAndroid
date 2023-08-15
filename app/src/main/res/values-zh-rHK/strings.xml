@@ -83,6 +83,7 @@
 \n直連： %3$s↑ %4$s↓</string>
     <string name="cag_dns">DNS 設定</string>
     <string name="direct_dns">直連 DNS</string>
+    <string name="underlying_dns">底層 DNS</string>
     <string name="enable_dns_routing">啟用 DNS 路由</string>
     <string name="dns_hosts">域名重寫</string>
     <string name="transproxy_mode">透明代理模式</string>
