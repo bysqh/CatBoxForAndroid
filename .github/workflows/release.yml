@@ -66,7 +66,7 @@ jobs:
           echo "ndk.dir=${ANDROID_HOME}/ndk/25.0.8775105" >> local.properties
           # export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"
           ./run init action gradle
-          ALISA_NAME=${{ secrets.KEY_ALIAS }} KEYSTORE_PASS=${{ secrets.KEY_ALIAS }} ./gradlew clean app:assembleOssRelease
+          KEYSTORE_PASS="${{ secrets.KEYSTORE_PASS }}" ALIAS_NAME="${{ secrets.ALIAS_NAME }}" ALIAS_PASS="${{ secrets.ALIAS_PASS}}" ./gradlew clean app:assembleOssRelease
 
           # rename
           directory="app/build/outputs/apk/oss/release/"
