@@ -1,12 +1,10 @@
 #!/bin/bash
 
 # For CI build, use downloaded golang
-if ! command -v go &>/dev/null; then
-  export golang=$PWD/build/golang
-  export GOPATH=$golang/gopath
-  export GOROOT=$golang/go
-  export PATH=$golang/go/bin:$GOPATH/bin:$PATH
-fi
+export golang=$PWD/build/golang
+export GOPATH=$golang/gopath
+export GOROOT=$golang/go
+export PATH=$golang/go/bin:$GOPATH/bin:$PATH
 
 source buildScript/init/env_ndk.sh
 
