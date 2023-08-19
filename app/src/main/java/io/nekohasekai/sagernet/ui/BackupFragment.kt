@@ -70,7 +70,7 @@ class BackupFragment : NamedFragment(R.layout.layout_backup) {
                 )
                 onMainDispatcher {
                     startFilesForResult(
-                        exportSettings, "nekobox_backup_${Date().toLocaleString()}.json"
+                        exportSettings, "catbox_backup_${Date().toLocaleString()}.json"
                     )
                 }
             }
@@ -85,7 +85,7 @@ class BackupFragment : NamedFragment(R.layout.layout_backup) {
                 )
                 app.cacheDir.mkdirs()
                 val cacheFile = File(
-                    app.cacheDir, "nekobox_backup_${Date().toLocaleString()}.json"
+                    app.cacheDir, "catbox_backup_${Date().toLocaleString()}.json"
                 )
                 cacheFile.writeText(content)
                 onMainDispatcher {

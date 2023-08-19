@@ -494,7 +494,7 @@ class MainActivity : ThemedActivity(),
                 .setMessage(text)
                 .setPositiveButton(R.string.action_download) { _, _ ->
                     launchCustomTab(
-                        "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases"
+                        "https://github.com/AntiNeko/CatBoxForAndroid/releases"
                     )
                 }
                 .setNegativeButton(android.R.string.cancel, null)

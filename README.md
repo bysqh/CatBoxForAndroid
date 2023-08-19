@@ -1,4 +1,4 @@
-# NekoBox for Android
+# CatBox for Android
 
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![Releases](https://img.shields.io/github/v/release/AntiNeko/CatBoxForAndroid)](https://github.com/AntiNeko/CatBoxForAndroid/releases)
@@ -39,7 +39,7 @@ https://AntiNeko.github.io
 * Trojan-Go ( trojan-go-plugin )
 * NaïveProxy ( naive-plugin )
 * Hysteria ( hysteria-plugin )
-* TUIC ( tuic-plugin & tuic-v5-plugin )
+* TUIC
 
 请到[这里](https://AntiNeko.github.io/m-plugin/)下载插件。
 
@@ -81,7 +81,7 @@ git clone https://github.com/AntiNeko/CatBoxForAndroid.git
 
 环境：
 
-* jdk-17-openjd
+* jdk-17-openjdk
 * ndk 25.0.8775105
 
 如果没有环境变量 `$ANDROID_HOME` 和 `$ANDROID_NDK_HOME` 可以运行脚本 `buildScript/init/env_ndk.sh`
@@ -121,3 +121,7 @@ Android GUI:
 - [SagerNet/SagerNet](https://github.com/SagerNet/SagerNet)
 - [Matsuridayo/Matsuri](https://github.com/MatsuriDayo/Matsuri)
 - [MatsuriDayo/NekoBoxForAndroid](https://github.com/MatsuriDayo/NekoBoxForAndroid)
+
+Web Dashboard:
+
+- [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)
