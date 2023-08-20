@@ -335,7 +335,7 @@ class MainActivity : ThemedActivity(),
 
             R.id.nav_about -> displayFragment(AboutFragment())
             R.id.nav_tuiguang -> {
-                launchCustomTab("https://matsuricom.pages.dev/")
+                launchCustomTab("https://HystericalDragon.github.io/donate")
                 return false
             }
 
@@ -477,16 +477,16 @@ class MainActivity : ThemedActivity(),
         val dateBuild = Date(build)
 
         var text: String? = null
-        if (now > expire) {
-            text = getString(
-                R.string.please_update_force, sdf.format(dateBuild), sdf.format(dateExpire)
-            )
-        } else if (now > (expire - 2592000000)) {
-            // 30 days remind :D
-            text = getString(
-                R.string.please_update, sdf.format(dateBuild), sdf.format(dateExpire)
-            )
-        }
+        // if (now > expire) {
+        //     text = getString(
+        //         R.string.please_update_force, sdf.format(dateBuild), sdf.format(dateExpire)
+        //     )
+        // } else if (now > (expire - 2592000000)) {
+        //     // 30 days remind :D
+        //     text = getString(
+        //         R.string.please_update, sdf.format(dateBuild), sdf.format(dateExpire)
+        //     )
+        // }
 
 
         if (text != null) {
