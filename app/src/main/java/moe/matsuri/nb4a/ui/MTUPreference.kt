@@ -35,7 +35,7 @@ class MTUPreference
                 .setView(view)
                 .setPositiveButton(android.R.string.ok) { _, _ ->
                     val mtu = view.text.toString().toInt()
-                    if (mtu < 1000 || mtu > 10000) return@setPositiveButton
+                    if (mtu <= 1000 || mtu > 65535) return@setPositiveButton
                     value = mtu.toString()
                 }
                 .setNegativeButton(android.R.string.cancel, null)
