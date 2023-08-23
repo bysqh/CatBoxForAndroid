@@ -83,7 +83,7 @@ class AboutFragment : ToolbarFragment(R.layout.layout_about) {
                         .subText(versionName)
                         .setOnClickAction {
                             requireContext().launchCustomTab(
-                                "https://github.com/AntiNeko/CatForAndroid/releases"
+                                "https://github.com/AntiNeko/CatBoxForAndroid/releases"
                             )
                         }
                         .build())
@@ -162,7 +162,7 @@ class AboutFragment : ToolbarFragment(R.layout.layout_about) {
                         .text(R.string.github)
                         .setOnClickAction {
                             requireContext().launchCustomTab(
-                                "https://github.com/AntiNeko/CatForAndroid"
+                                "https://github.com/AntiNeko/CatBoxForAndroid"
 
                             )
                         }
@@ -172,7 +172,7 @@ class AboutFragment : ToolbarFragment(R.layout.layout_about) {
                         .text(R.string.telegram)
                         .setOnClickAction {
                             requireContext().launchCustomTab(
-                                "https://t.me/MatsuriDayo"
+                                "https://t.me/AntiNek0"
                             )
                         }
                         .build())
