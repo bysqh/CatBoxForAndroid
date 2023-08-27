@@ -36,6 +36,8 @@ class TuicSettingsActivity : ProfileSettingsActivity<TuicBean>() {
         DataStore.serverConfig = customJSON
         DataStore.serverProtocolVersion = protocolVersion
         DataStore.serverUsername = uuid
+
+        DataStore.profileCacheStore.putBoolean("sUoT", sUoT)
     }
 
     override fun TuicBean.serialize() {
@@ -58,6 +60,8 @@ class TuicSettingsActivity : ProfileSettingsActivity<TuicBean>() {
         customJSON = DataStore.serverConfig
         protocolVersion = DataStore.serverProtocolVersion
         uuid = DataStore.serverUsername
+
+        sUoT = DataStore.profileCacheStore.getBoolean("sUoT")
     }
 
     override fun PreferenceFragmentCompat.createPreferences(

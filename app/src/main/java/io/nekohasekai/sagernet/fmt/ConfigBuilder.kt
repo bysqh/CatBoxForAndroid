@@ -434,7 +434,10 @@ fun buildConfig(
                     try {
                         val sUoT = bean.javaClass.getField("sUoT").get(bean)
                         if (sUoT is Boolean && sUoT == true) {
-                            currentOutbound["udp_over_tcp"] = true
+                            when (bean) {
+                                is TuicBean -> currentOutbound["udp_over_stream"] = true
+                                else -> currentOutbound["udp_over_tcp"] = true
+                            }
                         }
                     } catch (_: Exception) {
                     }

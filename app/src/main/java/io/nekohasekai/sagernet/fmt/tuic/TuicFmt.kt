@@ -70,7 +70,9 @@ fun buildSingBoxOutboundTuicBean(bean: TuicBean): SingBoxOptions.Outbound_TUICOp
         uuid = bean.uuid
         password = bean.token
         congestion_control = bean.congestionController
-        udp_relay_mode = bean.udpRelayMode
+        if (!bean.sUoT) {
+            udp_relay_mode = bean.udpRelayMode
+        }
         zero_rtt_handshake = bean.reduceRTT
         tls = SingBoxOptions.OutboundTLSOptions().apply {
             if (bean.sni.isNotBlank()) {

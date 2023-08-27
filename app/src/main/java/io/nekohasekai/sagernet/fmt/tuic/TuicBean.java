@@ -33,6 +33,8 @@ public class TuicBean extends AbstractBean {
     public Integer protocolVersion;
     public String uuid;
 
+    public Boolean sUoT;
+
     @Override
     public void initializeDefaultValues() {
         super.initializeDefaultValues();
@@ -50,6 +52,7 @@ public class TuicBean extends AbstractBean {
         if (customJSON == null) customJSON = "";
         if (protocolVersion == null) protocolVersion = 5;
         if (uuid == null) uuid = "";
+        if (sUoT == null) sUoT = false;
     }
 
     @Override
@@ -70,6 +73,7 @@ public class TuicBean extends AbstractBean {
         output.writeString(customJSON);
         output.writeInt(protocolVersion);
         output.writeString(uuid);
+        output.writeBoolean(sUoT);
     }
 
     @Override
@@ -96,6 +100,14 @@ public class TuicBean extends AbstractBean {
         } else {
             protocolVersion = 4;
         }
+        sUoT = input.readBoolean();
+    }
+
+    @Override
+    public void applyFeatureSettings(AbstractBean other) {
+        if (!(other instanceof TuicBean)) return;
+        TuicBean bean = ((TuicBean) other);
+        bean.sUoT = sUoT;
     }
 
     @Override

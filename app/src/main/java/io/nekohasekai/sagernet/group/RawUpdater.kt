@@ -565,6 +565,7 @@ object RawUpdater : GroupUpdater() {
                                     bean.sni = bean.serverAddress
                                 }
                             }
+                            bean.sUoT = proxy["udp-over-stream"]?.toString() == "true"
                             proxies.add(bean)
                         }
                     }

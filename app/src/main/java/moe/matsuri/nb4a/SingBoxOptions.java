@@ -3913,6 +3913,8 @@ public class SingBoxOptions {
 
         public String udp_relay_mode;
 
+        public UDPOverTCPOptions udp_over_stream;
+
         public Boolean zero_rtt_handshake;
 
         public Long heartbeat;

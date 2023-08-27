@@ -93,4 +93,9 @@
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="sing-box server">
+        <SwitchPreference
+            app:key="sUoT"
+            app:title="UDP over Stream" />
+    </PreferenceCategory>
 </PreferenceScreen>
