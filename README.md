@@ -19,6 +19,12 @@ sing-box / universal proxy toolchain for Android.
 
 [下载](https://github.com/AntiNeko/CatBoxForAndroid/releases)
 
+### F-Droid
+
+[![IzzySoft](https://img.shields.io/badge/F--droid-IzzySoft-blue?logo=fdroid)](https://apt.izzysoft.de/fdroid/)
+
+[下载 (IzzySoft)](https://apt.izzysoft.de/fdroid/index/apk/moe.cb4a)
+
 ## 更改记录 & 发布频道 / Changelog & Telegram channel
 
 https://t.me/AntiNek0
@@ -100,12 +106,17 @@ export ALIAS_NAME=
 export ALIAS_PASS=
 ```
 
-以上这只是举例，请勿直接把密码信息放入环境变量，而是附加在编译命令前。
+以上这只是举例，请勿直接把密码信息放入环境变量，建议在编译后自行签名。
+
+下载 geo 资源文件：
+
+```shell
+./run init action gradle
+```
 
 正式编译：
 
 ```shell
-./run init action gradle
 ./gradlew app:assembleOssRelease
 ```
 
