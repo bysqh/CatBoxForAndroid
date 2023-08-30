@@ -459,7 +459,7 @@
     <string name="save">保存</string>
     <string name="set_panel_url">设置面板 URL</string>
     <string name="enable_clash_api">启用 Clash API</string>
-    <string name="enable_clash_api_summary">在 127.0.0.1:9090 提供 clash api 和 yacd 仪表板</string>
+    <string name="enable_clash_api_summary">在 127.0.0.1:9090 提供 clash api 和 clash 仪表板</string>
     <string name="xtls_flow">Flow（VLESS 子协议）</string>
     <string name="log_level">日志级别</string>
     <string name="ads">推广</string>

@@ -10,6 +10,7 @@ build/
 local.properties
 /app/libs/
 /app/src/main/assets/sing-box
+/app/src/main/assets/dashboard.zip
 /service_account_credentials.json
 jniLibs/
 /library/libcore_build/

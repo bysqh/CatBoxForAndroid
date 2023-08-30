@@ -27,7 +27,7 @@ class WebviewFragment : ToolbarFragment(R.layout.layout_webview), Toolbar.OnMenu
 
         // layout
         toolbar.setTitle(R.string.menu_dashboard)
-        toolbar.inflateMenu(R.menu.yacd_menu)
+        toolbar.inflateMenu(R.menu.dash_menu)
         toolbar.setOnMenuItemClickListener(this)
 
         val binding = LayoutWebviewBinding.bind(view)
@@ -48,7 +48,7 @@ class WebviewFragment : ToolbarFragment(R.layout.layout_webview), Toolbar.OnMenu
                 super.onPageFinished(view, url)
             }
         }
-        mWebView.loadUrl(DataStore.yacdURL)
+        mWebView.loadUrl(DataStore.dashURL)
     }
 
     @SuppressLint("CheckResult")
@@ -57,13 +57,13 @@ class WebviewFragment : ToolbarFragment(R.layout.layout_webview), Toolbar.OnMenu
             R.id.action_set_url -> {
                 val view = EditText(context).apply {
                     inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
-                    setText(DataStore.yacdURL)
+                    setText(DataStore.dashURL)
                 }
                 MaterialAlertDialogBuilder(requireContext()).setTitle(R.string.set_panel_url)
                     .setView(view)
                     .setPositiveButton(android.R.string.ok) { _, _ ->
-                        DataStore.yacdURL = view.text.toString()
-                        mWebView.loadUrl(DataStore.yacdURL)
+                        DataStore.dashURL = view.text.toString()
+                        mWebView.loadUrl(DataStore.dashURL)
                     }
                     .setNegativeButton(android.R.string.cancel, null)
                     .show()

@@ -6,8 +6,8 @@ const (
 	geoipVersion   = "geoip.version.txt"
 	geositeVersion = "geosite.version.txt"
 
-	yacdDstFolder = "yacd"
-	yacdVersion   = "yacd.version.txt"
+	dashDstFolder = "dashboard"
+	dashVersion   = "dashboard.version.txt"
 )
 
 var apkAssetPrefixSingBox = "sing-box/"
