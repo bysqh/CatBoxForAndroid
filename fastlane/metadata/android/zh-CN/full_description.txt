@@ -1,0 +1,1 @@
+CatBox 是一款使用 sing-box 的通用代理平台，改编自 NekoBoxForAndroid。移除了一些不受欢迎的特性，同时更加开放、透明。

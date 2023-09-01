@@ -1,0 +1,1 @@
+CatBox 是一款使用 sing-box 的 Android 通用代理软件。
