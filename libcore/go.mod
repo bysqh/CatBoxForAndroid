@@ -9,7 +9,7 @@ require (
 	github.com/matsuridayo/libneko v1.0.0 // replaced
 	github.com/matsuridayo/sing-box-extra v1.0.0 // replaced
 	github.com/miekg/dns v1.1.55
-	github.com/sagernet/sing v0.2.10-0.20230824115837-8d731e68853a
+	github.com/sagernet/sing v0.2.10-0.20230830132630-30bf19f2833c
 	github.com/sagernet/sing-box v1.0.0 // replaced
 	github.com/sagernet/sing-dns v0.1.9-0.20230824120133-4d5cbceb40c1
 	github.com/sagernet/sing-tun v0.1.12-0.20230821065522-7545dc2d5641
@@ -34,7 +34,6 @@ require (
 	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
 	github.com/gofrs/uuid/v5 v5.0.0 // indirect
-	github.com/golang/mock v1.6.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/btree v1.1.2 // indirect
 	github.com/google/pprof v0.0.0-20230821062121-407c9e7a662f // indirect
@@ -56,13 +55,13 @@ require (
 	github.com/pires/go-proxyproto v0.7.0 // indirect
 	github.com/quic-go/qpack v0.4.0 // indirect
 	github.com/quic-go/qtls-go1-20 v0.3.3 // indirect
-	github.com/sagernet/cloudflare-tls v0.0.0-20221031050923-d70792f4c3a0 // indirect
+	github.com/sagernet/cloudflare-tls v0.0.0-20230829051644-4a68352d0c4a // indirect
 	github.com/sagernet/go-tun2socks v1.16.12-0.20220818015926-16cb67876a61 // indirect
 	github.com/sagernet/gvisor v0.0.0-20230808113425-d8f9f5e110c4 // indirect
 	github.com/sagernet/netlink v0.0.0-20220905062125-8043b4a9aa97 // indirect
-	github.com/sagernet/quic-go v0.0.0-20230825040534-0cd917b2ddda // indirect
+	github.com/sagernet/quic-go v0.0.0-20230831052420-45809eee2e86 // indirect
 	github.com/sagernet/reality v0.0.0-20230406110435-ee17307e7691 // indirect
-	github.com/sagernet/sing-mux v0.1.3-0.20230811111955-dc1639b5204c // indirect
+	github.com/sagernet/sing-mux v0.1.3-0.20230830095209-2a10ebd53ba8 // indirect
 	github.com/sagernet/sing-shadowsocks v0.2.4 // indirect
 	github.com/sagernet/sing-shadowsocks2 v0.1.3 // indirect
 	github.com/sagernet/sing-shadowtls v0.1.4 // indirect
