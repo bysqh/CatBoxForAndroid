@@ -86,22 +86,7 @@ git clone https://github.com/AntiNeko/CatBoxForAndroid.git
 
 #### Dashboard
 
-具体参考以下 Dashboard，也可以用自己喜欢的。可以自行编译，也可以下载预构建的。
-
-- [MetaCubeX/Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)
-- [MetaCubeX/metacubexd](https://github.com/MetaCubeX/metacubexd)
-
-1. 把编译好 `public` `dist` 等 **`index.html`** 所在的文件夹 重命名为 `Dash-*` （后面的名字自己起，如 `Dash-metacubexd`）。
-
-2. 把 `Dash-*` 打包为 zip 并命名为 `dashboard.zip`
-
-```shell
-zip -r dashboard Dash-* -9
-```
-
-3. 将 `dashboard.zip` 置于 `app/src/assets/main/dashboard.zip`。
-
-我们提供了 Dashboard 的构建脚本，注意确保自己已安装 pnpm 并处理好版本相关问题（目前暂时是无脑最新版）：
+请确保已设置好正确的 Node 环境（pnpm 等）。
 
 ```shell
 DASHBOARD_NAME=metacubexd # Or Yacd-meta

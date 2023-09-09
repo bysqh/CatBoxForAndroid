@@ -10,3 +10,7 @@ buildScript/init/action/gradle.sh
 
 # Build libcore
 buildScript/lib/core.sh
+
+# Setup Node.js & Build dashboard
+buildScript/init/action/node.sh
+buildScript/dashboard/init.sh metacubexd

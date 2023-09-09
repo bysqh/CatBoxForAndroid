@@ -2,7 +2,14 @@ name: Nightly Build
 on:
   push:
     branches:
-      - dev
+      - dev*
+    paths:
+      - "app/**"
+      - "buildScript/**"
+      - "buildScr/**"
+      - "libcore/**"
+      - "grade/**"
+      - ".github/workflows/nightly-build.yml"
 
 jobs:
   libcore:
@@ -10,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Golang Status
         run: find buildScript libcore/*.sh | xargs cat | sha1sum > golang_status
       - name: Libcore Status
@@ -30,46 +37,14 @@ jobs:
       - name: Native Build
         if: steps.cache.outputs.cache-hit != 'true'
         run: ./run lib core
-  dashboard:
-    name: Build Dashboard
-    runs-on: ubuntu-latest
-    needs:
-      - libcore
-    steps:
-      - name: Chaeckout
-        uses: actions/checkout@v3
-        with:
-          repository: 'MetaCubeX/metacubexd'
-      - uses: pnpm/action-setup@v2
-        with:
-          version: latest
-      - name: Setup Nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: latest
-          cache: pnpm
-      - name: Install package and build
-        run: |
-          pnpm install
-          pnpm build
-      - name: Pack
-        run: |
-          mv dist/ Dash-metacubexd/
-          zip -r dashboard.zip Dash-metacubexd/ -9
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: dashboard-artifact
-          path: dashboard.zip
   build:
     name: Build OSS APK
     runs-on: ubuntu-latest
     needs:
       - libcore
-      - dashboard
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Golang Status
         run: find buildScript libcore/*.sh | xargs cat | sha1sum > golang_status
       - name: Libcore Status
@@ -80,14 +55,12 @@ jobs:
           path: |
             app/libs/libcore.aar
           key: ${{ hashFiles('.github/workflows/*', 'golang_status', 'libcore_status') }}
-      - name: Clean Dashboard
-        run: |
-          rm app/src/main/assets/dashboard.zip || true
-      - name: Download Dashboard
-        uses: actions/download-artifact@v3
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
         with:
-          name: dashboard-artifact
-          path: app/src/main/assets/dashboard.zip
+          node-version: 'latest'
+      - name: Set Up pnpn
+        run: npm install -g pnpm
       - name: Gradle cache
         uses: actions/cache@v3
         with:
@@ -97,13 +70,14 @@ jobs:
         env:
           BUILD_PLUGIN: none
         run: |
+          ./run dashboard init metacubexd
           # curl -Lo  app/src/main/assets/yacd.zip https://github.com/MetaCubeX/Yacd-meta/archive/refs/heads/gh-pages.zip
           echo "sdk.dir=${ANDROID_HOME}" > local.properties
           echo "ndk.dir=${ANDROID_HOME}/ndk/25.0.8775105" >> local.properties
           # export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"
           ./run init action gradle
-          # KEYSTORE_PASS="${{ secrets.KEYSTORE_PASS }}" ALIAS_NAME="${{ secrets.ALIAS_NAME }}" ALIAS_PASS="${{ secrets.ALIAS_PASS}}" ./gradlew clean app:assembleOssRelease
-          ./gradlew clean app:assembleOssRelease
+          KEYSTORE_PASS="${{ secrets.KEYSTORE_PASS }}" ALIAS_NAME="${{ secrets.ALIAS_NAME }}" ALIAS_PASS="${{ secrets.ALIAS_PASS}}" ./gradlew clean app:assembleOssRelease
+          # ./gradlew clean app:assembleOssRelease
 
           # rename
           directory="app/build/outputs/apk/oss/release/"
@@ -127,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Golang Status
         run: find buildScript libcore/*.sh | xargs cat | sha1sum > golang_status
       - name: Libcore Status
